@@ -1,6 +1,9 @@
 # Container security PoC
 
-Build and scan final service images with Grype, project VEX and the shared BOD/EPSS policy.
+Build and scan final service images with Grype, project VEX and the shared
+**CISA BOD 26-04 decision-table-first** policy. Its configured EPSS percentile
+quartile amplifier runs after BOD, with KEV and urgent 3D/3DF guards. The
+5%/10% probability override is no longer active.
 
 | CI image | Dockerfile | Base image | VEX |
 | --- | --- | --- | --- |
