@@ -1,0 +1,59 @@
+name: Container CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-scan:
+    name: Build and scan ${{ matrix.image }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: service-minimal-alpine
+            dockerfile: Dockerfile
+            exposure: unknown
+          - image: service-minimal-debian
+            dockerfile: Dockerfile.debian
+            exposure: unknown
+          - image: cae-live
+            dockerfile: Dockerfile.cae-live
+            exposure: public
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Build image
+        env:
+          IMAGE: ${{ matrix.image }}:ci-${{ github.sha }}
+          DOCKERFILE: ${{ matrix.dockerfile }}
+        run: docker build --file "$DOCKERFILE" --tag "$IMAGE" .
+
+      - name: Install Grype
+        id: grype
+        uses: anchore/scan-action/download-grype@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2
+
+      - name: Scan and evaluate policy
+        uses: EmVee-hub/github-actions/actions/grype-policy-scan@d9755233a90b93aec872719323db289d2651af77
+        with:
+          image: ${{ matrix.image }}:ci-${{ github.sha }}
+          vex-path: vex/openvex.json
+          # unknown is conservatively evaluated as public by the shared policy.
+          # public is policy context; this workflow does not deploy the image.
+          exposure: ${{ matrix.exposure }}
+          mode: shadow
+          grype-binary: ${{ steps.grype.outputs.cmd }}
+
+      - name: Upload assessment
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: security-${{ matrix.image }}
+          path: security-reports/
+          if-no-files-found: warn
