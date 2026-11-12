@@ -1,0 +1,61 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/EmVee-hub/service-minimal/vex/cae-live",
+  "author": "EmVee-hub",
+  "timestamp": "2026-11-12T05:30:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2026-125350"
+      },
+      "products": [
+        {
+          "@id": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=alpine-3.24.4"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. cae-live serves static files using the explicit nginx.conf written by Dockerfile.cae-live. That configuration loads no dynamic modules, contains no XSLT directives, and does not include external configuration. The libxslt transformation code is not in this application's execution path. This statement applies only to cae-live with this configuration and the exact package version listed. Reassess if the configuration, modules, entrypoint, or application changes. Findings remain in the scan evidence; this does not claim the installed library is patched."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-87636"
+      },
+      "products": [
+        {
+          "@id": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=alpine-3.24.4"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. cae-live serves static files using the explicit nginx.conf written by Dockerfile.cae-live. That configuration loads no dynamic modules, contains no XSLT directives, and does not include external configuration. The libxslt transformation code is not in this application's execution path. This statement applies only to cae-live with this configuration and the exact package version listed. Reassess if the configuration, modules, entrypoint, or application changes. Findings remain in the scan evidence; this does not claim the installed library is patched."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-9947"
+      },
+      "products": [
+        {
+          "@id": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=alpine-3.24.4"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. cae-live serves static files using the explicit nginx.conf written by Dockerfile.cae-live. That configuration loads no dynamic modules, contains no XSLT directives, and does not include external configuration. The libxslt transformation code is not in this application's execution path. This statement applies only to cae-live with this configuration and the exact package version listed. Reassess if the configuration, modules, entrypoint, or application changes. Findings remain in the scan evidence; this does not claim the installed library is patched."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2025-10911"
+      },
+      "products": [
+        {
+          "@id": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=alpine-3.24.4"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. cae-live serves static files using the explicit nginx.conf written by Dockerfile.cae-live. That configuration loads no dynamic modules, contains no XSLT directives, and does not include external configuration. The libxslt transformation code is not in this application's execution path. This statement applies only to cae-live with this configuration and the exact package version listed. Reassess if the configuration, modules, entrypoint, or application changes. Findings remain in the scan evidence; this does not claim the installed library is patched."
+    }
+  ]
+}
