@@ -16,14 +16,22 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - image: service-minimal-alpine
+          - image: nginx-alpine
             dockerfile: Dockerfile
             exposure: unknown
             vex: vex/openvex.json
-          - image: service-minimal-debian
-            dockerfile: Dockerfile.debian
+          - image: nginx-debian
+            dockerfile: Dockerfile.nginx
             exposure: unknown
             vex: vex/openvex.json
+          - image: php-fpm
+            dockerfile: Dockerfile.php
+            exposure: unknown
+            vex: vex/no-exceptions.openvex.json
+          - image: redis
+            dockerfile: Dockerfile.redis
+            exposure: unknown
+            vex: vex/no-exceptions.openvex.json
           - image: cae-live
             dockerfile: Dockerfile.cae-live
             exposure: public
