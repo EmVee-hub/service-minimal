@@ -2,7 +2,40 @@
   "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "https://github.com/EmVee-hub/service-minimal/vex/1",
   "author": "EmVee-hub",
-  "timestamp": "2026-11-12T00:00:00Z",
-  "version": 1,
-  "statements": []
+  "timestamp": "2026-11-12T05:15:00Z",
+  "version": 2,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2026-9079"
+      },
+      "products": [
+        {
+          "@id": "pkg:deb/debian/curl@8.14.1-2%2Bdeb13u7?arch=amd64&distro=debian-13"
+        },
+        {
+          "@id": "pkg:deb/debian/libcurl4t64@8.14.1-2%2Bdeb13u7?arch=amd64&distro=debian-13&upstream=curl"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. Project-owner assertion for the service-minimal plain nginx PoC: the application does not invoke curl or use libcurl. This assertion is limited to the listed Debian package versions in this repository; it is not an independent runtime reachability verification. Reassess before adding application code, custom entrypoint scripts, health checks, modules, or configuration that uses curl/libcurl."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-92391"
+      },
+      "products": [
+        {
+          "@id": "pkg:deb/debian/curl@8.14.1-2%2Bdeb13u7?arch=amd64&distro=debian-13"
+        },
+        {
+          "@id": "pkg:deb/debian/libcurl4t64@8.14.1-2%2Bdeb13u7?arch=amd64&distro=debian-13&upstream=curl"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Not in use by application. Project-owner assertion for the service-minimal plain nginx PoC: the application does not invoke curl or use libcurl. This assertion is limited to the listed Debian package versions in this repository; it is not an independent runtime reachability verification. Reassess before adding application code, custom entrypoint scripts, health checks, modules, or configuration that uses curl/libcurl."
+    }
+  ]
 }
