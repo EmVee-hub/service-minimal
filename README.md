@@ -24,3 +24,10 @@ before changing any policy or VEX.
 The `cae-live` example uses a separate scoped VEX. Statements claiming
 `not_affected` require independently reviewed applicability and provenance.
 This PoC does not validate live AKS/EKS workload coverage or deployment safety.
+
+## Report revision
+
+New runs use the BOD-first policy and a compact findings table. Historical
+GitHub Actions reruns preserve their original commit and action pin; they can
+still show removed `POC_*` probability-policy rules. To validate the current
+policy, choose **Run workflow** on `main` instead of **Re-run jobs** on an old run.
