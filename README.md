@@ -31,3 +31,10 @@ New runs use the BOD-first policy and a compact findings table. Historical
 GitHub Actions reruns preserve their original commit and action pin; they can
 still show removed `POC_*` probability-policy rules. To validate the current
 policy, choose **Run workflow** on `main` instead of **Re-run jobs** on an old run.
+
+
+## Team presentation
+
+[Download the architecture presentation (PowerPoint)](docs/presentations/container_security_architecture_simple.pptx)
+
+Ten-slide PoC overview covering architecture, BOD decisions, the local EPSS adjustment, repository setup, VEX and cloud normalization. This is the presentation prepared on 2026-11-12; cloud examples are synthetic and live identity/coverage validation remains outstanding. The EPSS matrix shown includes Q1 deadline relaxation, matching the policy at preparation time.
