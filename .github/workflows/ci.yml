@@ -43,7 +43,7 @@ jobs:
         uses: anchore/scan-action/download-grype@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2
 
       - name: Scan and evaluate policy
-        uses: EmVee-hub/github-actions/actions/grype-policy-scan@d9755233a90b93aec872719323db289d2651af77
+        uses: EmVee-hub/github-actions/actions/grype-policy-scan@ad3af2dfa8efe404a9f682bf658deeff9991d2ee
         with:
           image: ${{ matrix.image }}:ci-${{ github.sha }}
           vex-path: ${{ matrix.vex }}
@@ -51,6 +51,7 @@ jobs:
           # public is policy context; this workflow does not deploy the image.
           exposure: ${{ matrix.exposure }}
           mode: enforce
+          poc-kev-epss: 'true'
           grype-binary: ${{ steps.grype.outputs.cmd }}
 
       - name: Upload assessment
