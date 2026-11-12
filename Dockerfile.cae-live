@@ -1,1 +1,17 @@
 FROM nginx:stable-alpine
+
+# Static files only: no dynamic modules, XSLT directives, or config includes.
+# This configuration is the basis of vex/cae-live.openvex.json.
+RUN printf '%s\n' \
+    'events {}' \
+    'http {' \
+    '    default_type text/html;' \
+    '    server {' \
+    '        listen 80;' \
+    '        location / {' \
+    '            root /usr/share/nginx/html;' \
+    '            index index.html;' \
+    '        }' \
+    '    }' \
+    '}' > /etc/nginx/nginx.conf \
+    && nginx -t
