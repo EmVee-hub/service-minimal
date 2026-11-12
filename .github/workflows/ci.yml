@@ -19,12 +19,15 @@ jobs:
           - image: service-minimal-alpine
             dockerfile: Dockerfile
             exposure: unknown
+            vex: vex/openvex.json
           - image: service-minimal-debian
             dockerfile: Dockerfile.debian
             exposure: unknown
+            vex: vex/openvex.json
           - image: cae-live
             dockerfile: Dockerfile.cae-live
             exposure: public
+            vex: vex/cae-live.openvex.json
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -43,7 +46,7 @@ jobs:
         uses: EmVee-hub/github-actions/actions/grype-policy-scan@d9755233a90b93aec872719323db289d2651af77
         with:
           image: ${{ matrix.image }}:ci-${{ github.sha }}
-          vex-path: vex/openvex.json
+          vex-path: ${{ matrix.vex }}
           # unknown is conservatively evaluated as public by the shared policy.
           # public is policy context; this workflow does not deploy the image.
           exposure: ${{ matrix.exposure }}
