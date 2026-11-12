@@ -1,4 +1,4 @@
-name: Container CI
+name: Container security PoC CI
 on:
   pull_request:
   push:
