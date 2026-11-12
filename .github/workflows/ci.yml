@@ -43,7 +43,7 @@ jobs:
         uses: anchore/scan-action/download-grype@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2
 
       - name: Scan and evaluate policy
-        uses: EmVee-hub/github-actions/actions/grype-policy-scan@104f5fded0b43caca005019ed53766e7daaad963
+        uses: EmVee-hub/github-actions/actions/grype-policy-scan@731ea14419701c6667bf6467a52e1914b8e51005
         with:
           image: ${{ matrix.image }}:ci-${{ github.sha }}
           vex-path: ${{ matrix.vex }}
