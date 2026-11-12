@@ -1,0 +1,8 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/EmVee-hub/service-minimal/vex/1",
+  "author": "EmVee-hub",
+  "timestamp": "2026-11-12T00:00:00Z",
+  "version": 1,
+  "statements": []
+}
