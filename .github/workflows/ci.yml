@@ -47,7 +47,7 @@ jobs:
           # unknown is conservatively evaluated as public by the shared policy.
           # public is policy context; this workflow does not deploy the image.
           exposure: ${{ matrix.exposure }}
-          mode: shadow
+          mode: enforce
           grype-binary: ${{ steps.grype.outputs.cmd }}
 
       - name: Upload assessment
